@@ -1,7 +1,8 @@
 public class FizzBuzz {
-    public static int of(int i) {
-        if(i == 2)
+    public static int of(int number) {
+        if (number == 2)
             return 2;
-        return 1;
+        else
+            return 1;
     }
 }
