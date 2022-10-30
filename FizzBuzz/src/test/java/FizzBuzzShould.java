@@ -8,4 +8,8 @@ public class FizzBuzzShould {
         assertEquals(1, FizzBuzz.of(1));
     }
 
+    @Test
+    public void return2IfInputIs2() {
+        assertEquals(2, FizzBuzz.of(2));
+    }
 }
