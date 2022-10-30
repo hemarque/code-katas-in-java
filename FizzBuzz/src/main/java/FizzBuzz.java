@@ -1,5 +1,7 @@
 public class FizzBuzz {
     public static String of(int number) {
+        if((number % 3 == 0) && (number % 5 == 0))
+            return "FizzBuzz";
         if (isDivisibleBy3(number))
             return "Fizz";
         else if (isDivisibleBy5(number)) {
