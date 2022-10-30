@@ -2,7 +2,7 @@ public class FizzBuzz {
     public static String of(int number) {
         if (isDivisibleBy3(number))
             return "Fizz";
-        else if (number == 5) {
+        else if (number % 5 == 0) {
             return "Buzz";
         } else
             return number+"";
