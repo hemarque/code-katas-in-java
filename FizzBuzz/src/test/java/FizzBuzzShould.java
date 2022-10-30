@@ -15,4 +15,9 @@ public class FizzBuzzShould {
         assertEquals("Fizz", FizzBuzz.of(3));
     }
 
+
+    @Test
+    public void returnBuzzIfInputIs5() {
+        assertEquals("Buzz", FizzBuzz.of(5));
+    }
 }
