@@ -1,8 +1,8 @@
 public class FizzBuzz {
     public static String of(int number) {
-        if((number % 3 == 0) && (number % 5 == 0))
+        if(isDivisibleBy3(number) && isDivisibleBy5(number))
             return "FizzBuzz";
-        if (isDivisibleBy3(number))
+        else if (isDivisibleBy3(number))
             return "Fizz";
         else if (isDivisibleBy5(number)) {
             return "Buzz";

@@ -27,13 +27,10 @@ public class FizzBuzzShould {
     }
 
     @Test
-    public void returnFizzBuzzIfInputIs15() {
+    public void returnFizzBuzzIfInputIsDivisibleBy3and5() {
         assertEquals("FizzBuzz", FizzBuzz.of(15));
-    }
-
-    @Test
-    public void returnFizzBuzzIfInputIs30() {
         assertEquals("FizzBuzz", FizzBuzz.of(30));
+        assertEquals("FizzBuzz", FizzBuzz.of(45));
     }
 
 }
