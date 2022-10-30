@@ -21,12 +21,9 @@ public class FizzBuzzShould {
 
 
     @Test
-    public void returnBuzzIfInputIs5() {
+    public void returnBuzzIfInputIsDivisibleBy5() {
         assertEquals("Buzz", FizzBuzz.of(5));
-    }
-
-    @Test
-    public void returnBuzzIfInputIs10() {
         assertEquals("Buzz", FizzBuzz.of(10));
     }
+
 }
