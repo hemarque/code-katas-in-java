@@ -30,6 +30,13 @@ public class FizzBuzzShould {
     }
 
     @Test
+    public void returnBuzzIfInputHasA5() {
+        assertEquals("Buzz", fizzbuzz.of(56));
+        assertEquals("Buzz", fizzbuzz.of(58));
+        assertEquals("Buzz", fizzbuzz.of(59));
+    }
+
+    @Test
     public void returnBuzzIfInputIsDivisibleBy5() {
         assertEquals("Buzz", fizzbuzz.of(5));
         assertEquals("Buzz", fizzbuzz.of(10));
@@ -50,7 +57,7 @@ public class FizzBuzzShould {
                 "Fizz\n22\nFizz\nFizz\nBuzz\n26\nFizz\n28\n29\nFizzBuzz\n" +
                 "Fizz\nFizz\nFizz\nFizz\nFizz\nFizz\nFizz\nFizz\nFizz\nBuzz\n" +
                 "41\nFizz\nFizz\n44\nFizzBuzz\n46\n47\nFizz\n49\nBuzz\n" +
-                "Fizz\n52\nFizz\nFizz\nBuzz\n56\nFizz\n58\n59\nFizzBuzz\n" +
+                "Fizz\nBuzz\nFizz\nFizz\nBuzz\nBuzz\nFizz\nBuzz\nBuzz\nFizzBuzz\n" +
                 "61\n62\nFizz\n64\nBuzz\nFizz\n67\n68\nFizz\nBuzz\n" +
                 "71\nFizz\nFizz\n74\nFizzBuzz\n76\n77\nFizz\n79\nBuzz\n" +
                 "Fizz\n82\nFizz\nFizz\nBuzz\n86\nFizz\n88\n89\nFizzBuzz\n" +
