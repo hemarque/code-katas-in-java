@@ -52,3 +52,5 @@ So of course in order to avoid embarrassment in front of your whole class, you h
     - it has a 5 in it
 
 - The previous requirements are still correct.
+
+Clarification: talking with PO ;-) wink wink, he told me that 51 is FizzBuzz 'cause has a "5" and is divisible by 3

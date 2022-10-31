@@ -10,22 +10,39 @@ public class FizzBuzz {
             return String.valueOf(number);
     }
 
+    public String getFirst100Elements() {
+        String response = "";
+        for (int i = 1; i <= 100; i++)
+            response = response + of(i) + "\n";
+        return response.trim();
+    }
+
+
     private boolean isFizzBuzz(int number) {
         return number % 15 == 0;
     }
 
-    private boolean isBuzz(int number) {
-        return (number % 5 == 0) || (number+"").contains("5");
-    }
-
     private boolean isFizz(int number) {
-        return (number % 3 == 0) || (number+"").contains("3");
+        return isDivisibleBy3(number) || containsA3(number);
     }
 
-    public String getFirst100Elements() {
-        String response = "";
-        for(int i = 1; i<= 100; i++)
-            response = response + of(i)+"\n";
-        return response.trim();
+    private boolean isBuzz(int number) {
+        return isDivisibleBy5(number) || containsA5(number);
+    }
+
+    private boolean isDivisibleBy3(int number) {
+        return number % 3 == 0;
+    }
+
+    private boolean isDivisibleBy5(int number) {
+        return number % 5 == 0;
+    }
+
+    private boolean containsA3(int number) {
+        return (number + "").contains("3");
+    }
+
+    private boolean containsA5(int number) {
+        return (number + "").contains("5");
     }
 }
