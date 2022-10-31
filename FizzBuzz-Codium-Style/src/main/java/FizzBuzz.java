@@ -39,10 +39,10 @@ public class FizzBuzz {
     }
 
     private boolean containsA3(int number) {
-        return (number + "").contains("3");
+        return String.valueOf(number).contains("3");
     }
 
     private boolean containsA5(int number) {
-        return (number + "").contains("5");
+        return String.valueOf(number).contains("5");
     }
 }
