@@ -17,4 +17,11 @@ public class FizzBuzz {
     private boolean isDivisibleBy3(int number) {
         return number % 3 == 0;
     }
+
+    public String first100Elements() {
+        String response = "";
+        for (int i=1;i<=100;i++)
+            response = response + of(i)+"\n";
+        return response;
+    }
 }
