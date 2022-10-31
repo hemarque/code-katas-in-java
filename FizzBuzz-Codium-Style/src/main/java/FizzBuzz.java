@@ -19,7 +19,7 @@ public class FizzBuzz {
 
 
     private boolean isFizzBuzz(int number) {
-        return number % 15 == 0;
+        return isFizz(number) && isBuzz(number);
     }
 
     private boolean isFizz(int number) {

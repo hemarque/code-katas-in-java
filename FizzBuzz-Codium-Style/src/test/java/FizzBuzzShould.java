@@ -51,13 +51,20 @@ public class FizzBuzzShould {
     }
 
     @Test
+    public void returnFizzBuzzIfInputIsFizzAndBuzz(){
+        assertEquals("FizzBuzz", fizzbuzz.of(51));
+        assertEquals("FizzBuzz", fizzbuzz.of(35));
+        assertEquals("FizzBuzz", fizzbuzz.of(53));
+    }
+
+    @Test
     public void getFirst100Elements() {
         String expected = "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n" +
                 "11\nFizz\nFizz\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz\n" +
                 "Fizz\n22\nFizz\nFizz\nBuzz\n26\nFizz\n28\n29\nFizzBuzz\n" +
-                "Fizz\nFizz\nFizz\nFizz\nFizz\nFizz\nFizz\nFizz\nFizz\nBuzz\n" +
+                "Fizz\nFizz\nFizz\nFizz\nFizzBuzz\nFizz\nFizz\nFizz\nFizz\nBuzz\n" +
                 "41\nFizz\nFizz\n44\nFizzBuzz\n46\n47\nFizz\n49\nBuzz\n" +
-                "Fizz\nBuzz\nFizz\nFizz\nBuzz\nBuzz\nFizz\nBuzz\nBuzz\nFizzBuzz\n" +
+                "FizzBuzz\nBuzz\nFizzBuzz\nFizzBuzz\nBuzz\nBuzz\nFizzBuzz\nBuzz\nBuzz\nFizzBuzz\n" +
                 "61\n62\nFizz\n64\nBuzz\nFizz\n67\n68\nFizz\nBuzz\n" +
                 "71\nFizz\nFizz\n74\nFizzBuzz\n76\n77\nFizz\n79\nBuzz\n" +
                 "Fizz\n82\nFizz\nFizz\nBuzz\n86\nFizz\n88\n89\nFizzBuzz\n" +
