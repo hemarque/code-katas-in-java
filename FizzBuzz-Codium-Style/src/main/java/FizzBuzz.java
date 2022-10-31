@@ -2,9 +2,14 @@ public class FizzBuzz {
     public String of(int number) {
         if (isFizz(number))
             return "Fizz";
-        if (number % 5 == 0)
+        else if (isBuzz(number))
             return "Buzz";
-        return String.valueOf(number);
+        else
+            return String.valueOf(number);
+    }
+
+    private boolean isBuzz(int number) {
+        return number % 5 == 0;
     }
 
     private boolean isFizz(int number) {
