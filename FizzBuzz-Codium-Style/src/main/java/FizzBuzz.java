@@ -1,6 +1,6 @@
 public class FizzBuzz {
     public String of(int number) {
-        if (number % 15 == 0)
+        if (isFizzBuzz(number))
             return "FizzBuzz";
         else if (isFizz(number))
             return "Fizz";
@@ -8,6 +8,10 @@ public class FizzBuzz {
             return "Buzz";
         else
             return String.valueOf(number);
+    }
+
+    private boolean isFizzBuzz(int number) {
+        return number % 15 == 0;
     }
 
     private boolean isBuzz(int number) {
