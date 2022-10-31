@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FizzBuzzShould {
 
     FizzBuzz fizzbuzz = new FizzBuzz();
+
     @Test
     public void returnTheSameNumberIfInputIsNot3() {
         assertEquals("1", fizzbuzz.of(1));
@@ -16,6 +17,9 @@ public class FizzBuzzShould {
     @Test
     public void returnFizzIfInputIs3() {
         assertEquals("Fizz", fizzbuzz.of(3));
+        assertEquals("Fizz", fizzbuzz.of(6));
+        assertEquals("Fizz", fizzbuzz.of(6));
+        assertEquals("Fizz", fizzbuzz.of(12));
     }
 
     @Test
@@ -23,8 +27,4 @@ public class FizzBuzzShould {
         assertEquals("Buzz", fizzbuzz.of(5));
     }
 
-    @Test
-    public void returnFizzIfInputIs6() {
-        assertEquals("Fizz", fizzbuzz.of(6));
-    }
 }
