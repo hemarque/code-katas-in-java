@@ -21,4 +21,11 @@ public class FizzBuzz {
     private boolean isFizz(int number) {
         return number % 3 == 0;
     }
+
+    public String getFirst100Elements() {
+        String response = "";
+        for(int i = 1; i<= 100; i++)
+            response = response + of(i)+"\n";
+        return response.trim();
+    }
 }
