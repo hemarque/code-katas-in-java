@@ -2,12 +2,16 @@ public class FizzBuzz {
     public String of(int number) {
         if(isDivisibleBy3(number) && isDivisibleBy5(number))
             return "FizzBuzz";
-        else if (isDivisibleBy3(number) || ((number+"").contains("3")))
+        else if (isDivisibleBy3(number) || hasA3InIt(number))
             return "Fizz";
         else if (isDivisibleBy5(number)) {
             return "Buzz";
         } else
             return number+"";
+    }
+
+    private boolean hasA3InIt(int number) {
+        return (number + "").contains("3");
     }
 
     private boolean isDivisibleBy5(int number) {
