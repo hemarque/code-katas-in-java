@@ -7,11 +7,16 @@ public class FizzBuzzShould {
     FizzBuzz fizzbuzz = new FizzBuzz();
     @Test
     public void return1IfInputIs1() {
-        assertEquals(1, fizzbuzz.of(1));
+        assertEquals("1", fizzbuzz.of(1));
     }
 
     @Test
     public void return2IfInputIs2() {
-        assertEquals(2, fizzbuzz.of(2));
+        assertEquals("2", fizzbuzz.of(2));
+    }
+
+    @Test
+    public void returnFizzIfInputIs3() {
+        assertEquals("Fizz", fizzbuzz.of(3));
     }
 }

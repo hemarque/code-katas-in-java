@@ -1,5 +1,7 @@
 public class FizzBuzz {
-    public int of(int number) {
-        return number;
+    public String of(int number) {
+        if(number == 3)
+            return "Fizz";
+        return String.valueOf(number);
     }
 }
