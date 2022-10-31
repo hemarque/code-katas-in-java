@@ -9,11 +9,17 @@ public class FizzBuzzShould {
     public void returnTheSameNumberIfInputIsNot3() {
         assertEquals("1", fizzbuzz.of(1));
         assertEquals("2", fizzbuzz.of(2));
+        assertEquals("4", fizzbuzz.of(4));
     }
 
 
     @Test
     public void returnFizzIfInputIs3() {
         assertEquals("Fizz", fizzbuzz.of(3));
+    }
+
+    @Test
+    public void returnBuzzIfInputIs5() {
+        assertEquals("Buzz", fizzbuzz.of(5));
     }
 }
