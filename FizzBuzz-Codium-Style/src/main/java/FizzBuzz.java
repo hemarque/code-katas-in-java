@@ -19,7 +19,7 @@ public class FizzBuzz {
     }
 
     private boolean isFizz(int number) {
-        return number % 3 == 0;
+        return (number % 3 == 0) || (number+"").contains("3");
     }
 
     public String getFirst100Elements() {
