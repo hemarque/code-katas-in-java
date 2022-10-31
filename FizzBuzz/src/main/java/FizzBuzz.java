@@ -4,7 +4,7 @@ public class FizzBuzz {
             return "FizzBuzz";
         else if (isDivisibleBy3(number) || hasA3InIt(number))
             return "Fizz";
-        else if (isDivisibleBy5(number)) {
+        else if (isDivisibleBy5(number) || (number + "").contains("5")) {
             return "Buzz";
         } else
             return number+"";
