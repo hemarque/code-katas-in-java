@@ -15,7 +15,7 @@ public class FizzBuzzShould {
 
 
     @Test
-    public void returnFizzIfInputIs3() {
+    public void returnFizzIfInputIsDivisibleBy3() {
         assertEquals("Fizz", fizzbuzz.of(3));
         assertEquals("Fizz", fizzbuzz.of(6));
         assertEquals("Fizz", fizzbuzz.of(6));
