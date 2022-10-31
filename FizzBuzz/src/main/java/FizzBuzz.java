@@ -4,10 +4,14 @@ public class FizzBuzz {
             return "FizzBuzz";
         else if (isDivisibleBy3(number) || hasA3InIt(number))
             return "Fizz";
-        else if (isDivisibleBy5(number) || (number + "").contains("5")) {
+        else if (isDivisibleBy5(number) || hasA5InIt(number)) {
             return "Buzz";
         } else
             return number+"";
+    }
+
+    private boolean hasA5InIt(int number) {
+        return (number + "").contains("5");
     }
 
     private boolean hasA3InIt(int number) {
