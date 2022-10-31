@@ -1,13 +1,14 @@
 public class FizzBuzz {
     public String of(int number) {
-        if(isDivisibleBy3(number) && isDivisibleBy5(number))
+        if ((isDivisibleBy3(number) && isDivisibleBy5(number)) ||
+                (hasA3InIt(number) && hasA5InIt(number)))
             return "FizzBuzz";
         else if (isDivisibleBy3(number) || hasA3InIt(number))
             return "Fizz";
         else if (isDivisibleBy5(number) || hasA5InIt(number)) {
             return "Buzz";
         } else
-            return number+"";
+            return number + "";
     }
 
     private boolean hasA5InIt(int number) {
@@ -28,8 +29,8 @@ public class FizzBuzz {
 
     public String first100Elements() {
         String response = "";
-        for (int i=1;i<=100;i++)
-            response = response + of(i)+"\n";
+        for (int i = 1; i <= 100; i++)
+            response = response + of(i) + "\n";
         return response;
     }
 }

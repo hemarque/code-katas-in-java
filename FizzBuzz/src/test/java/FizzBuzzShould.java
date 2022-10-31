@@ -46,4 +46,9 @@ public class FizzBuzzShould {
         assertEquals("Buzz", fizzbuzz.of(52));
         assertEquals("Buzz", fizzbuzz.of(56));
     }
+
+    @Test
+    public void returnFizzBuzzIfItHasA3andA5(){
+        assertEquals("FizzBuzz", fizzbuzz.of(53));
+    }
 }
