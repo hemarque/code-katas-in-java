@@ -2,7 +2,7 @@ public class FizzBuzz {
     public String of(int number) {
         if(isDivisibleBy3(number) && isDivisibleBy5(number))
             return "FizzBuzz";
-        else if (isDivisibleBy3(number))
+        else if (isDivisibleBy3(number) || ((number+"").contains("3")))
             return "Fizz";
         else if (isDivisibleBy5(number)) {
             return "Buzz";
