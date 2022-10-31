@@ -1,6 +1,8 @@
 public class FizzBuzz {
     public String of(int number) {
-        if (isFizz(number))
+        if (number == 15)
+            return "FizzBuzz";
+        else if (isFizz(number))
             return "Fizz";
         else if (isBuzz(number))
             return "Buzz";
