@@ -1,5 +1,5 @@
 public class FizzBuzz {
-    public static int of(int i) {
+    public int of(int number) {
         return 1;
     }
 }
