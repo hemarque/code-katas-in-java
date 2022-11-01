@@ -4,23 +4,23 @@ public class RomanNumeralTranslator {
         String roman = "";
 
 
-        if (number >= 10) {
-            roman = "X";
+        while (number >= 10) {
+            roman = roman + "X";
             number -= 10;
         }
 
-        if (number >= 9) {
-            roman = "IX";
+        while (number >= 9) {
+            roman = roman + "IX";
             number -= 9;
         }
 
-        if (number >= 5) {
-            roman = "V";
+        while (number >= 5) {
+            roman = roman + "V";
             number -= 5;
         }
 
-        if (number >= 4) {
-            roman = "IV";
+        while (number >= 4) {
+            roman = roman + "IV";
             number -= 4;
         }
 
