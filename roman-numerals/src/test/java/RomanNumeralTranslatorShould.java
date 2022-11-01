@@ -1,10 +1,10 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RomanNumeralTranslatorShould {
     @Test
-    public void setupTest(){
-        assertTrue(true);
+    public void convertToRoman(){
+        assertEquals("I", RomanNumeralTranslator.toRoman(1));
     }
 }
