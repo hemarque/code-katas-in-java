@@ -25,8 +25,11 @@ public class RomanNumeralTranslator {
         }
 
 
-        for (int i = 0; i < number; i++)
+        while (number >= 1) {
             roman = roman + "I";
+            number -= 1;
+        }
+
         return roman;
     }
 }
