@@ -4,8 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RomanNumeralTranslatorShould {
     RomanNumeralTranslator romanNumeralTranslator = new RomanNumeralTranslator();
+
     @Test
-    public void convertToRoman(){
+    public void convertToRoman() {
         assertEquals("I", romanNumeralTranslator.toRoman(1));
         assertEquals("II", romanNumeralTranslator.toRoman(2));
         assertEquals("III", romanNumeralTranslator.toRoman(3));
@@ -23,7 +24,7 @@ public class RomanNumeralTranslatorShould {
         assertEquals("C", romanNumeralTranslator.toRoman(100));
         assertEquals("CD", romanNumeralTranslator.toRoman(400));
         assertEquals("D", romanNumeralTranslator.toRoman(500));
-
+        assertEquals("CM", romanNumeralTranslator.toRoman(900));
 
     }
 }
