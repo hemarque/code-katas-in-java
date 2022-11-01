@@ -3,6 +3,12 @@ public class RomanNumeralTranslator {
     public String toRoman(int number) {
         String roman = "";
 
+
+        if (number >= 10) {
+            roman = "X";
+            number -= 10;
+        }
+
         if (number >= 9) {
             roman = "IX";
             number -= 9;
