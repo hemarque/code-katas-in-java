@@ -25,6 +25,6 @@ public class RomanNumeralTranslatorShould {
         assertEquals("CD", romanNumeralTranslator.toRoman(400));
         assertEquals("D", romanNumeralTranslator.toRoman(500));
         assertEquals("CM", romanNumeralTranslator.toRoman(900));
-
+        assertEquals("M", romanNumeralTranslator.toRoman(1000));
     }
 }
