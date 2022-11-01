@@ -1,6 +1,6 @@
 public class RomanNumeralTranslator {
 
-    public static String toRoman(int i) {
+    public String toRoman(int number) {
         return "I";
     }
 }
