@@ -7,5 +7,6 @@ public class RomanNumeralTranslatorShould {
     @Test
     public void convertToRoman(){
         assertEquals("I", romanNumeralTranslator.toRoman(1));
+        assertEquals("II", romanNumeralTranslator.toRoman(2));
     }
 }
