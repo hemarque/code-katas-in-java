@@ -1,9 +1,14 @@
 public class RomanNumeralTranslator {
 
     public String toRoman(int number) {
-        if (number == 2)
-            return "II";
+        String response = "";
+        if (number == 3)
+            response = "III";
+        else if (number == 2)
+            response = "II";
         else
-            return "I";
+            response = "I";
+
+        return response;
     }
 }
