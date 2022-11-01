@@ -1,6 +1,6 @@
 public class RomanNumeralTranslator {
-    String[] romans = {"X", "IX", "V", "IV", "I"};
-    int[] arabics = {10, 9, 5, 4, 1};
+    String[] romans = {"XL", "X", "IX", "V", "IV", "I"};
+    int[] arabics = {40, 10, 9, 5, 4, 1};
 
     public String toRoman(int number) {
         String roman = "";

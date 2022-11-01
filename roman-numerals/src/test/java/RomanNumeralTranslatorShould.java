@@ -16,6 +16,9 @@ public class RomanNumeralTranslatorShould {
         assertEquals("VIII", romanNumeralTranslator.toRoman(8));
         assertEquals("IX", romanNumeralTranslator.toRoman(9));
         assertEquals("X", romanNumeralTranslator.toRoman(10));
+        assertEquals("XXXIX", romanNumeralTranslator.toRoman(39));
+        assertEquals("XL", romanNumeralTranslator.toRoman(40));
+
 
     }
 }
