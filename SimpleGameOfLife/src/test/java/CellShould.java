@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CellShould {
@@ -9,5 +10,13 @@ public class CellShould {
         Cell cell = new Cell();
         cell.live();
         assertTrue(cell.isAlive());
+    }
+
+    @Test
+    public void dieIfItIsAliveAndHaveNoNeighbours(){
+        Cell cell = new Cell();
+        cell.live();
+        cell.hasThisNumberOfNeighbours(0);
+        assertFalse(cell.nextGeneration().isAlive());
     }
 }
