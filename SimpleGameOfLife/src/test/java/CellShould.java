@@ -46,4 +46,13 @@ public class CellShould {
         cell.hasThisNumberOfNeighbours(3);
         assertTrue(cell.nextGeneration().isAlive());
     }
+
+    //Any live cell with more than three live neighbors dies, as if by overpopulation.
+    @Test
+    public void dieIfItIsAliveAndHaveMoreThanThreeNeighbours(){
+        Cell cell = new Cell();
+        cell.live();
+        cell.hasThisNumberOfNeighbours(4);
+        assertFalse(cell.nextGeneration().isAlive());
+    }
 }
