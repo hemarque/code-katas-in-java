@@ -1,20 +1,13 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CellShould {
+    //Any live cell with fewer than two live neighbours dies, as if by underpopulation.
     @Test
-    public void dieIfItHasNoNeighbours() {
-        Cell originalCell = new Cell();
-        Cell nextIterationCell = originalCell.nextGeneration();
-        assertFalse(nextIterationCell.isAlive());
-    }
-
-    @Test
-    public void dieIfItHasJustOneNeighbour() {
-        Cell originalCell = new Cell();
-        originalCell.setNeighbours(1);
-        Cell nextIterationCell = originalCell.nextGeneration();
-        assertFalse(nextIterationCell.isAlive());
+    public void beAliveIfWeOrderItToLive(){
+        Cell cell = new Cell();
+        cell.live();
+        assertTrue(cell.isAlive());
     }
 }

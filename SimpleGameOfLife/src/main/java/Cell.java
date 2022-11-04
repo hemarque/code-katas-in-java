@@ -1,15 +1,11 @@
 public class Cell {
-    private int neighbours;
+    private boolean lives = false;
 
-    public Cell nextGeneration() {
-        return new Cell();
+    public void live() {
+        this.lives = true;
     }
 
     public boolean isAlive() {
-        return false;
-    }
-
-    public void setNeighbours(int neighbours) {
-        this.neighbours = neighbours;
+        return this.lives;
     }
 }
