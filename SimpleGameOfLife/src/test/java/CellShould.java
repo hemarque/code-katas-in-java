@@ -19,4 +19,12 @@ public class CellShould {
         cell.hasThisNumberOfNeighbours(0);
         assertFalse(cell.nextGeneration().isAlive());
     }
+
+    @Test
+    public void dieIfItIsAliveAndHaveJustOneNeighbour(){
+        Cell cell = new Cell();
+        cell.live();
+        cell.hasThisNumberOfNeighbours(1);
+        assertFalse(cell.nextGeneration().isAlive());
+    }
 }
