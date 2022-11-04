@@ -16,7 +16,7 @@ public class Cell {
 
     public Cell nextGeneration() {
         Cell nextGeneration = new Cell();
-        if (neighbours == 2)
+        if (neighbours == 2 || neighbours == 3)
             nextGeneration.live();
         return nextGeneration;
     }

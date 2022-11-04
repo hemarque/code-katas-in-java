@@ -38,4 +38,12 @@ public class CellShould {
         cell.hasThisNumberOfNeighbours(2);
         assertTrue(cell.nextGeneration().isAlive());
     }
+
+    @Test
+    public void livesIfItIsAliveAndHaveThreeNeighbours(){
+        Cell cell = new Cell();
+        cell.live();
+        cell.hasThisNumberOfNeighbours(3);
+        assertTrue(cell.nextGeneration().isAlive());
+    }
 }
