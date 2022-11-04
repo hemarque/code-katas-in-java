@@ -55,4 +55,13 @@ public class CellShould {
         cell.hasThisNumberOfNeighbours(4);
         assertFalse(cell.nextGeneration().isAlive());
     }
+
+    // Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction
+    @Test
+    public void livesIfItIsDeadAndHaveThreeNeighbours(){
+        Cell cell = new Cell();
+        cell.die();
+        cell.hasThisNumberOfNeighbours(3);
+        assertTrue(cell.nextGeneration().isAlive());
+    }
 }

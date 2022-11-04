@@ -16,8 +16,14 @@ public class Cell {
 
     public Cell nextGeneration() {
         Cell nextGeneration = new Cell();
-        if (neighbours == 2 || neighbours == 3)
+        if (isAlive() && (neighbours == 2 || neighbours == 3))
+            nextGeneration.live();
+        else if(!isAlive() && neighbours==3)
             nextGeneration.live();
         return nextGeneration;
+    }
+
+    public void die() {
+        this.lives = false;
     }
 }
