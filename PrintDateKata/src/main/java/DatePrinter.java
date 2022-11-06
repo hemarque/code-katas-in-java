@@ -1,9 +1,9 @@
 import java.util.Date;
 
 public class DatePrinter {
-    private final ManualDateProvider dateProvider;
+    private final DateProvider dateProvider;
 
-    public DatePrinter(ManualDateProvider dateProvider) {
+    public DatePrinter(DateProvider dateProvider) {
         this.dateProvider = dateProvider;
     }
 

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class ManualDateProvider {
+public class ManualDateProvider implements DateProvider {
     ArrayList <Date> dateCalls = new ArrayList<>();
 
     private Date date;
