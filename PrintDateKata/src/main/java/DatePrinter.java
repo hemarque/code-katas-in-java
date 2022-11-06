@@ -7,7 +7,7 @@ public class DatePrinter {
         this.dateProvider = dateProvider;
     }
 
-    public void printCurrentDate() {
+    public void printCurrentDate() throws Exception {
         System.out.println(dateProvider.getDate());
     }
 }

@@ -19,7 +19,7 @@ public class DatePrinterShould {
     }
 
     @Test
-    public void callTheManualDateProviderToPrintTheDate() {
+    public void callTheManualDateProviderToPrintTheDate() throws Exception {
         Date currentDate = Date.from(Instant.parse("2022-11-06T10:00:00.00Z"));
         ManualDateProvider dateProvider = new ManualDateProvider();
         dateProvider.setDate(currentDate);
@@ -31,7 +31,7 @@ public class DatePrinterShould {
     }
 
     @Test
-    public void callsTheDateProviderToPrintTheDate() {
+    public void callsTheDateProviderToPrintTheDate() throws Exception {
         Date currentDate = Date.from(Instant.parse("2022-11-06T10:00:00.00Z"));
         CurrentDateProvider dateProvider = mock(CurrentDateProvider.class);
         when(dateProvider.getDate()).thenReturn(currentDate);
@@ -41,6 +41,7 @@ public class DatePrinterShould {
 
         verify(dateProvider).getDate();
     }
+
 
 
 }

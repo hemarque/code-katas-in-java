@@ -1,5 +1,5 @@
 import java.util.Date;
 
 public interface DateProvider {
-    Date getDate();
+    Date getDate() throws Exception;
 }
