@@ -43,5 +43,14 @@ public class DatePrinterShould {
     }
 
 
+    @Test
+    public void printsTheDateAfterGettingItFromProvider() throws Exception {
+        CurrentDateProvider dateProvider = spy(CurrentDateProvider.class);
+        DatePrinter printer = new DatePrinter(dateProvider);
+
+        printer.printCurrentDate();
+
+        verify(dateProvider).getDate();
+    }
 
 }
