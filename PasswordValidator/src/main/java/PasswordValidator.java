@@ -1,18 +1,10 @@
 public class PasswordValidator {
     public static boolean validate(String password) {
-        boolean hasUnderscore = false;
-        for (char c : password.toCharArray()) {
-            if (c == '_') {
-                hasUnderscore = true;
-                break;
-            }
-        }
-
         return hasMoreThan8Characters(password) &&
                 hasAtLeast1Uppercase(password) &&
                 hasAtLeast1Lowercase(password) &&
                 hasAtLeast1Number(password) &&
-                hasUnderscore;
+                hasUnderscore(password);
     }
 
     private static boolean hasMoreThan8Characters(String password) {
@@ -29,6 +21,17 @@ public class PasswordValidator {
 
     private static boolean hasAtLeast1Number(String password) {
         return hasAtLeast1CharacterOfThisSet(password, '0', '9');
+    }
+
+    private static boolean hasUnderscore(String password) {
+        boolean hasUnderscore = false;
+        for (char c : password.toCharArray()) {
+            if (c == '_') {
+                hasUnderscore = true;
+                break;
+            }
+        }
+        return hasUnderscore;
     }
 
     private static boolean hasAtLeast1CharacterOfThisSet(String password, char charStart, char charEnds) {
