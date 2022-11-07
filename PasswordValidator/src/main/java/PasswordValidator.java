@@ -1,30 +1,39 @@
 public class PasswordValidator {
-    public static boolean validate(String validPassword) {
-        return hasMoreThan8Characters(validPassword) &&
-                hasAtLeast1Uppercase(validPassword) &&
-                hasAtLeast1Lowercase(validPassword) &&
-                hasAtLeast1Number(validPassword);
+    public static boolean validate(String password) {
+        boolean hasUnderscore = false;
+        for (char c : password.toCharArray()) {
+            if (c == '_') {
+                hasUnderscore = true;
+                break;
+            }
+        }
+
+        return hasMoreThan8Characters(password) &&
+                hasAtLeast1Uppercase(password) &&
+                hasAtLeast1Lowercase(password) &&
+                hasAtLeast1Number(password) &&
+                hasUnderscore;
     }
 
-    private static boolean hasMoreThan8Characters(String validPassword) {
-        return validPassword.length() > 8;
+    private static boolean hasMoreThan8Characters(String password) {
+        return password.length() > 8;
     }
 
-    private static boolean hasAtLeast1Uppercase(String validPassword) {
-        return hasAtLeast1CharacterOfThisSet(validPassword, 'A', 'Z');
+    private static boolean hasAtLeast1Uppercase(String password) {
+        return hasAtLeast1CharacterOfThisSet(password, 'A', 'Z');
     }
 
-    private static boolean hasAtLeast1Lowercase(String validPassword) {
-        return hasAtLeast1CharacterOfThisSet(validPassword, 'a', 'z');
+    private static boolean hasAtLeast1Lowercase(String password) {
+        return hasAtLeast1CharacterOfThisSet(password, 'a', 'z');
     }
 
-    private static boolean hasAtLeast1Number(String validPassword) {
-        return hasAtLeast1CharacterOfThisSet(validPassword, '0', '9');
+    private static boolean hasAtLeast1Number(String password) {
+        return hasAtLeast1CharacterOfThisSet(password, '0', '9');
     }
 
-    private static boolean hasAtLeast1CharacterOfThisSet(String validPassword, char charStart, char charEnds) {
+    private static boolean hasAtLeast1CharacterOfThisSet(String password, char charStart, char charEnds) {
         boolean hasAtLeast1Number = false;
-        for (char c : validPassword.toCharArray()) {
+        for (char c : password.toCharArray()) {
             if (c >= charStart && c <= charEnds) {
                 hasAtLeast1Number = true;
                 break;
