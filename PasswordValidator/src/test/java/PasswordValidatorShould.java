@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PasswordValidatorShould {
@@ -8,5 +9,12 @@ public class PasswordValidatorShould {
         String validPassword = "123456789";
         boolean isValid = PasswordValidator.validate(validPassword);
         assertTrue(isValid);
+    }
+
+    @Test
+    public void returnInvalidIfPasswordHas8CharactersOrLess(){
+        String invalidPassword = "12345678";
+        boolean isValid = PasswordValidator.validate(invalidPassword);
+        assertFalse(isValid);
     }
 }
