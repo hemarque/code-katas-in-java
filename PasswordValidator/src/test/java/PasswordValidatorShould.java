@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PasswordValidatorShould {
     @Test
     public void returnValidIfPasswordMatchTheRules() {
-        String validPassword = "A23456789";
+        String validPassword = "Ab3456789";
         boolean isValid = PasswordValidator.validate(validPassword);
         assertTrue(isValid);
     }
@@ -20,6 +20,12 @@ public class PasswordValidatorShould {
     @Test
     public void returnInvalidIfPasswordHasNoUppercaseLetters() {
         String invalidPassword = "123456789";
+        assertInvalidPassword(invalidPassword);
+    }
+
+    @Test
+    public void returnInvalidIfPasswordHasNoLowercaseLetters() {
+        String invalidPassword = "A23456789";
         assertInvalidPassword(invalidPassword);
     }
 
