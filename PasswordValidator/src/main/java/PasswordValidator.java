@@ -1,15 +1,31 @@
 public class PasswordValidator {
     public static boolean validate(String validPassword) {
-        return  hasMoreThan8Characters(validPassword) &&
+        return hasMoreThan8Characters(validPassword) &&
                 hasAtLeast1Uppercase(validPassword) &&
                 hasAtLeast1Lowercase(validPassword) &&
                 hasAtLeast1Number(validPassword);
     }
 
+    private static boolean hasMoreThan8Characters(String validPassword) {
+        return validPassword.length() > 8;
+    }
+
+    private static boolean hasAtLeast1Uppercase(String validPassword) {
+        return hasAtLeast1CharacterOfThisSet(validPassword, 'A', 'Z');
+    }
+
+    private static boolean hasAtLeast1Lowercase(String validPassword) {
+        return hasAtLeast1CharacterOfThisSet(validPassword, 'a', 'z');
+    }
+
     private static boolean hasAtLeast1Number(String validPassword) {
+        return hasAtLeast1CharacterOfThisSet(validPassword, '0', '9');
+    }
+
+    private static boolean hasAtLeast1CharacterOfThisSet(String validPassword, char charStart, char charEnds) {
         boolean hasAtLeast1Number = false;
-        for(char c : validPassword.toCharArray()){
-            if (c >= '0' && c <= '9'){
+        for (char c : validPassword.toCharArray()) {
+            if (c >= charStart && c <= charEnds) {
                 hasAtLeast1Number = true;
                 break;
             }
@@ -17,29 +33,4 @@ public class PasswordValidator {
         return hasAtLeast1Number;
     }
 
-    private static boolean hasAtLeast1Lowercase(String validPassword) {
-        boolean hasAtLeast1Lowercase = false;
-        for(char c : validPassword.toCharArray()){
-            if (c >= 'a' && c <= 'z'){
-                hasAtLeast1Lowercase = true;
-                break;
-            }
-        }
-        return hasAtLeast1Lowercase;
-    }
-
-    private static boolean hasAtLeast1Uppercase(String validPassword) {
-        boolean hasAtLeast1Uppercase = false;
-        for(char c : validPassword.toCharArray()){
-            if (c >= 'A' && c <= 'Z'){
-                hasAtLeast1Uppercase = true;
-                break;
-            }
-        }
-        return hasAtLeast1Uppercase;
-    }
-
-    private static boolean hasMoreThan8Characters(String validPassword) {
-        return validPassword.length() > 8;
-    }
 }
