@@ -29,6 +29,12 @@ public class PasswordValidatorShould {
         assertInvalidPassword(invalidPassword);
     }
 
+    @Test
+    public void returnInvalidIfPasswordHasNoNumbers() {
+        String invalidPassword = "AbCdEfGhI";
+        assertInvalidPassword(invalidPassword);
+    }
+
     private void assertInvalidPassword(String invalidPassword) {
         boolean isValid = PasswordValidator.validate(invalidPassword);
         assertFalse(isValid);
