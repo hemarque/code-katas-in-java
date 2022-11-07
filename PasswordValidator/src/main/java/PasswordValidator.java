@@ -1,5 +1,12 @@
 public class PasswordValidator {
     public static boolean validate(String validPassword) {
+        return  hasMoreThan8Characters(validPassword) &&
+                hasAtLeast1Uppercase(validPassword) &&
+                hasAtLeast1Lowercase(validPassword) &&
+                hasAtLeast1Number(validPassword);
+    }
+
+    private static boolean hasAtLeast1Number(String validPassword) {
         boolean hasAtLeast1Number = false;
         for(char c : validPassword.toCharArray()){
             if (c >= '0' && c <= '9'){
@@ -7,11 +14,7 @@ public class PasswordValidator {
                 break;
             }
         }
-
-        return  hasMoreThan8Characters(validPassword) &&
-                hasAtLeast1Uppercase(validPassword) &&
-                hasAtLeast1Lowercase(validPassword) &&
-                hasAtLeast1Number;
+        return hasAtLeast1Number;
     }
 
     private static boolean hasAtLeast1Lowercase(String validPassword) {
