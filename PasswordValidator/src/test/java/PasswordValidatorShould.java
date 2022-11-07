@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PasswordValidatorShould {
     @Test
-    public void returnValidIfPasswordHasMoreThan8Characters() {
+    public void returnValidIfPasswordMatchTheRules() {
         String validPassword = "A23456789";
         boolean isValid = PasswordValidator.validate(validPassword);
         assertTrue(isValid);
