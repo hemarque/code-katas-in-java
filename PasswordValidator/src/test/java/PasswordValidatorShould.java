@@ -14,13 +14,16 @@ public class PasswordValidatorShould {
     @Test
     public void returnInvalidIfPasswordHas8CharactersOrLess() {
         String invalidPassword = "12345678";
-        boolean isValid = PasswordValidator.validate(invalidPassword);
-        assertFalse(isValid);
+        assertInvalidPassword(invalidPassword);
     }
 
     @Test
     public void returnInvalidIfPasswordHasNoUppercaseLetters() {
         String invalidPassword = "123456789";
+        assertInvalidPassword(invalidPassword);
+    }
+
+    private void assertInvalidPassword(String invalidPassword) {
         boolean isValid = PasswordValidator.validate(invalidPassword);
         assertFalse(isValid);
     }
