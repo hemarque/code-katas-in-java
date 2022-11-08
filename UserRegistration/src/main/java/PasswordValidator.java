@@ -1,6 +1,10 @@
 public class PasswordValidator {
     public void validate(String password) throws Exception {
         passwordHasMoreThan8Characters(password);
+        passwordContainsAtLeastOneUnderscore(password);
+    }
+
+    private void passwordContainsAtLeastOneUnderscore(String password) throws Exception {
         if (!password.contains("_"))
             throw new Exception("Password should contain at least one underscore");
     }
