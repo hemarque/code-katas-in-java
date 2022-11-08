@@ -5,7 +5,7 @@ public class UserRegistrar {
         this.repository = repository;
     }
 
-    public void register(String email) throws Exception {
-        repository.save(email);
+    public String register(String email) throws Exception {
+        return repository.save(email);
     }
 }

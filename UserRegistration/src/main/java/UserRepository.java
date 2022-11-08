@@ -1,5 +1,7 @@
+import java.util.UUID;
+
 public class UserRepository {
-    public void save(String email) throws Exception {
-        throw new Exception("Not implemented yet");
+    public String save(String email) throws Exception {
+        return UUID.randomUUID().toString();
     }
 }
