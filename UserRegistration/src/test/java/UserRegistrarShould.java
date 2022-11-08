@@ -11,7 +11,8 @@ public class UserRegistrarShould {
         String password = "goodPassword_";
         UserRepository repository = mock(UserRepository.class);
         PasswordValidator validator = new PasswordValidator();
-        UserRegistrar registrar = new UserRegistrar(repository, validator);
+        EmailSender sender = new EmailSender();
+        UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
 
         registrar.register(email, password);
 
@@ -24,7 +25,8 @@ public class UserRegistrarShould {
         String password = "goodPassword_";
         UserRepository repository = new UserRepository();
         PasswordValidator validator = new PasswordValidator();
-        UserRegistrar registrar = new UserRegistrar(repository, validator);
+        EmailSender sender = new EmailSender();
+        UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
 
         String userId = registrar.register(email, password);
 
@@ -37,7 +39,8 @@ public class UserRegistrarShould {
         String password = "goodPassword_";
         UserRepository repository = new UserRepository();
         PasswordValidator validator = new PasswordValidator();
-        UserRegistrar registrar = new UserRegistrar(repository, validator);
+        EmailSender sender = new EmailSender();
+        UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
 
         String userIdGenerated = registrar.register(email, password);
         User userIdRequested = registrar.findUserByEmail(email);
@@ -52,7 +55,8 @@ public class UserRegistrarShould {
         String password = "goodPassword_";
         UserRepository repository = new UserRepository();
         PasswordValidator validator = new PasswordValidator();
-        UserRegistrar registrar = new UserRegistrar(repository, validator);
+        EmailSender sender = new EmailSender();
+        UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
 
         registrar.register(email1, password);
         registrar.register(email2, password);
@@ -68,7 +72,8 @@ public class UserRegistrarShould {
         String password = "goodPassword_";
         UserRepository repository = new UserRepository();
         PasswordValidator validator = mock(PasswordValidator.class);
-        UserRegistrar registrar = new UserRegistrar(repository, validator);
+        EmailSender sender = new EmailSender();
+        UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
 
         registrar.register(email, password);
 
@@ -81,7 +86,8 @@ public class UserRegistrarShould {
         String password = "badPass_";
         UserRepository repository = new UserRepository();
         PasswordValidator validator = new PasswordValidator();
-        UserRegistrar registrar = new UserRegistrar(repository, validator);
+        EmailSender sender = new EmailSender();
+        UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
 
         Exception exception = assertThrows(Exception.class, () -> registrar.register(email, password));
         assertEquals("Password should have more than 8 characters", exception.getMessage());
@@ -93,10 +99,25 @@ public class UserRegistrarShould {
         String password = "badPassword";
         UserRepository repository = new UserRepository();
         PasswordValidator validator = new PasswordValidator();
-        UserRegistrar registrar = new UserRegistrar(repository, validator);
+        EmailSender sender = new EmailSender();
+        UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
 
         Exception exception = assertThrows(Exception.class, () -> registrar.register(email, password));
         assertEquals("Password should contain at least one underscore", exception.getMessage());
+    }
+
+    @Test
+    public void shouldSendAConfirmationEmailWhenTheUserIsRegistered() throws Exception {
+        String email = "email@email.com";
+        String password = "goodPassword_";
+        UserRepository repository = new UserRepository();
+        PasswordValidator validator = new PasswordValidator();
+        EmailSender sender = mock(EmailSender.class);
+        UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
+
+        registrar.register(email, password);
+
+        verify(sender).sendConfirmation(email);
     }
 
 }
