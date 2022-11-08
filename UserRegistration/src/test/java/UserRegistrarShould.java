@@ -8,7 +8,7 @@ public class UserRegistrarShould {
     @Test
     public void commandToPersistTheUser() throws Exception {
         String email = "email@email.com";
-        String password = "goodPassword";
+        String password = "goodPassword_";
         UserRepository repository = mock(UserRepository.class);
         PasswordValidator validator = new PasswordValidator();
         UserRegistrar registrar = new UserRegistrar(repository, validator);
@@ -21,7 +21,7 @@ public class UserRegistrarShould {
     @Test
     public void getAnUserIdRandomlyGenerated() throws Exception {
         String email = "email@email.com";
-        String password = "goodPassword";
+        String password = "goodPassword_";
         UserRepository repository = new UserRepository();
         PasswordValidator validator = new PasswordValidator();
         UserRegistrar registrar = new UserRegistrar(repository, validator);
@@ -34,7 +34,7 @@ public class UserRegistrarShould {
     @Test
     public void couldGetTheUserAfterBeingPersisted() throws Exception {
         String email = "email@email.com";
-        String password = "goodPassword";
+        String password = "goodPassword_";
         UserRepository repository = new UserRepository();
         PasswordValidator validator = new PasswordValidator();
         UserRegistrar registrar = new UserRegistrar(repository, validator);
@@ -49,7 +49,7 @@ public class UserRegistrarShould {
     public void shouldNotExistTwoUsersWithTheSameEmail() throws Exception {
         String email1 = "email@email.com";
         String email2 = "email@email.com";
-        String password = "goodPassword";
+        String password = "goodPassword_";
         UserRepository repository = new UserRepository();
         PasswordValidator validator = new PasswordValidator();
         UserRegistrar registrar = new UserRegistrar(repository, validator);
@@ -65,7 +65,7 @@ public class UserRegistrarShould {
     @Test
     public void shouldValidateThePassword() throws Exception {
         String email = "email@email.com";
-        String password = "goodPassword";
+        String password = "goodPassword_";
         UserRepository repository = new UserRepository();
         PasswordValidator validator = mock(PasswordValidator.class);
         UserRegistrar registrar = new UserRegistrar(repository, validator);
@@ -78,13 +78,25 @@ public class UserRegistrarShould {
     @Test
     public void shouldValidateThatThePasswordHasMoreThan8Characters() throws Exception {
         String email = "email@email.com";
-        String password = "badPass";
+        String password = "badPass_";
         UserRepository repository = new UserRepository();
         PasswordValidator validator = new PasswordValidator();
         UserRegistrar registrar = new UserRegistrar(repository, validator);
 
         Exception exception = assertThrows(Exception.class, () -> registrar.register(email, password));
         assertEquals("Password should have more than 8 characters", exception.getMessage());
+    }
+
+    @Test
+    public void shouldValidateThatThePasswordContainsUnderscore() throws Exception {
+        String email = "email@email.com";
+        String password = "badPassword";
+        UserRepository repository = new UserRepository();
+        PasswordValidator validator = new PasswordValidator();
+        UserRegistrar registrar = new UserRegistrar(repository, validator);
+
+        Exception exception = assertThrows(Exception.class, () -> registrar.register(email, password));
+        assertEquals("Password should contain at least one underscore", exception.getMessage());
     }
 
 }
