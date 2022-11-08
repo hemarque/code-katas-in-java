@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 public class UserRepository {
     HashMap<String, String> users = new HashMap<String, String>();
@@ -12,5 +13,9 @@ public class UserRepository {
 
     public String findUserByEmail(String email) {
         return users.get(email);
+    }
+
+    public Stream<String> findAllUsersByEmail(String email) {
+        return users.keySet().stream().filter(e -> e.equals(email));
     }
 }

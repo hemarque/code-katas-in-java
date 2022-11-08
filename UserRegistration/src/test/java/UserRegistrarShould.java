@@ -40,4 +40,19 @@ public class UserRegistrarShould {
         assertEquals(userIdGenerated, userIdRequested);
     }
 
+    @Test
+    public void shouldNotExistTwoUsersWithTheSameEmail() throws Exception {
+        String email1 = "email@email.com";
+        String email2 = "email@email.com";
+        UserRepository repository = new UserRepository();
+        UserRegistrar registrar = new UserRegistrar(repository);
+
+        registrar.register(email1);
+        registrar.register(email2);
+
+        long count = registrar.countAllUsersByEmail(email1);
+
+        assertEquals(1, count);
+    }
+
 }

@@ -12,4 +12,8 @@ public class UserRegistrar {
     public String findUserByEmail(String email) {
         return repository.findUserByEmail(email);
     }
+
+    public long countAllUsersByEmail(String email) {
+        return repository.findAllUsersByEmail(email).count();
+    }
 }
