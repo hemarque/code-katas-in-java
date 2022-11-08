@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -74,6 +73,18 @@ public class UserRegistrarShould {
         registrar.register(email, password);
 
         verify(validator).validate(password);
+    }
+
+    @Test
+    public void shouldValidateThatThePasswordHasMoreThan8Characters() throws Exception {
+        String email = "email@email.com";
+        String password = "badPass";
+        UserRepository repository = new UserRepository();
+        PasswordValidator validator = new PasswordValidator();
+        UserRegistrar registrar = new UserRegistrar(repository, validator);
+
+        Exception exception = assertThrows(Exception.class, () -> registrar.register(email, password));
+        assertEquals("Password should have more than 8 characters", exception.getMessage());
     }
 
 }
