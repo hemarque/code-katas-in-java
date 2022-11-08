@@ -9,10 +9,12 @@ public class UserRegistrarShould {
     @Test
     public void commandToPersistTheUser() throws Exception {
         String email = "email@email.com";
+        String password = "goodPassword";
         UserRepository repository = mock(UserRepository.class);
-        UserRegistrar registrar = new UserRegistrar(repository);
+        PasswordValidator validator = new PasswordValidator();
+        UserRegistrar registrar = new UserRegistrar(repository, validator);
 
-        registrar.register(email);
+        registrar.register(email, password);
 
         verify(repository).save(email);
     }
@@ -20,10 +22,12 @@ public class UserRegistrarShould {
     @Test
     public void getAnUserIdRandomlyGenerated() throws Exception {
         String email = "email@email.com";
+        String password = "goodPassword";
         UserRepository repository = new UserRepository();
-        UserRegistrar registrar = new UserRegistrar(repository);
+        PasswordValidator validator = new PasswordValidator();
+        UserRegistrar registrar = new UserRegistrar(repository, validator);
 
-        String userId = registrar.register(email);
+        String userId = registrar.register(email, password);
 
         assertNotNull(userId);
     }
@@ -31,10 +35,12 @@ public class UserRegistrarShould {
     @Test
     public void couldGetTheUserAfterBeingPersisted() throws Exception {
         String email = "email@email.com";
+        String password = "goodPassword";
         UserRepository repository = new UserRepository();
-        UserRegistrar registrar = new UserRegistrar(repository);
+        PasswordValidator validator = new PasswordValidator();
+        UserRegistrar registrar = new UserRegistrar(repository, validator);
 
-        String userIdGenerated = registrar.register(email);
+        String userIdGenerated = registrar.register(email, password);
         User userIdRequested = registrar.findUserByEmail(email);
 
         assertEquals(userIdGenerated, userIdRequested.getUserId());
@@ -44,15 +50,30 @@ public class UserRegistrarShould {
     public void shouldNotExistTwoUsersWithTheSameEmail() throws Exception {
         String email1 = "email@email.com";
         String email2 = "email@email.com";
+        String password = "goodPassword";
         UserRepository repository = new UserRepository();
-        UserRegistrar registrar = new UserRegistrar(repository);
+        PasswordValidator validator = new PasswordValidator();
+        UserRegistrar registrar = new UserRegistrar(repository, validator);
 
-        registrar.register(email1);
-        registrar.register(email2);
+        registrar.register(email1, password);
+        registrar.register(email2, password);
 
         long count = registrar.countAllUsersByEmail(email1);
 
         assertEquals(1, count);
+    }
+
+    @Test
+    public void shouldValidateThePassword() throws Exception {
+        String email = "email@email.com";
+        String password = "goodPassword";
+        UserRepository repository = new UserRepository();
+        PasswordValidator validator = mock(PasswordValidator.class);
+        UserRegistrar registrar = new UserRegistrar(repository, validator);
+
+        registrar.register(email, password);
+
+        verify(validator).validate(password);
     }
 
 }
