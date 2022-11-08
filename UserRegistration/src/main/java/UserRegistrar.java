@@ -9,7 +9,7 @@ public class UserRegistrar {
         return repository.save(email);
     }
 
-    public String findUserByEmail(String email) {
+    public User findUserByEmail(String email) {
         return repository.findUserByEmail(email);
     }
 

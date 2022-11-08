@@ -3,15 +3,16 @@ import java.util.UUID;
 import java.util.stream.Stream;
 
 public class UserRepository {
-    HashMap<String, String> users = new HashMap<String, String>();
+    HashMap<String, User> users = new HashMap<>();
 
     public String save(String email) throws Exception {
         String uuid = UUID.randomUUID().toString();
-        users.put(email, uuid);
+        User user = new User(email, uuid);
+        users.put(email, user);
         return uuid;
     }
 
-    public String findUserByEmail(String email) {
+    public User findUserByEmail(String email) {
         return users.get(email);
     }
 

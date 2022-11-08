@@ -35,9 +35,9 @@ public class UserRegistrarShould {
         UserRegistrar registrar = new UserRegistrar(repository);
 
         String userIdGenerated = registrar.register(email);
-        String userIdRequested = registrar.findUserByEmail(email);
+        User userIdRequested = registrar.findUserByEmail(email);
 
-        assertEquals(userIdGenerated, userIdRequested);
+        assertEquals(userIdGenerated, userIdRequested.getUserId());
     }
 
     @Test
