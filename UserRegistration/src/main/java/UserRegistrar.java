@@ -8,4 +8,8 @@ public class UserRegistrar {
     public String register(String email) throws Exception {
         return repository.save(email);
     }
+
+    public String findUserByEmail(String email) {
+        return repository.findUserByEmail(email);
+    }
 }
