@@ -31,13 +31,12 @@ public class UserRegistrarShould {
     }
 
     @Test
-    public void couldGetTheUserAfterBeingPersisted() throws Exception {
+    public void couldGetTheUserInTheRepositoryAfterBeingPersisted() throws Exception {
         UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
 
         String userIdGenerated = registrar.register(email, password);
-        User userIdRequested = registrar.findUserByEmail(email);
 
-        assertEquals(userIdGenerated, userIdRequested.getUserId());
+        assertEquals(userIdGenerated, repository.findUserByEmail(email).getUserId());
     }
 
     @Test
