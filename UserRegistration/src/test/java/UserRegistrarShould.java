@@ -18,7 +18,7 @@ public class UserRegistrarShould {
 
         registrar.register(email, password);
 
-        verify(mockRepository).save(email);
+        verify(mockRepository).save(email, password);
     }
 
     @Test
@@ -36,7 +36,11 @@ public class UserRegistrarShould {
 
         registrar.register(email, password);
 
-        assertNotNull(repository.findUserByEmail(email));
+        User user = repository.findUserByEmail(email);
+        assertNotNull(user);
+        assertNotNull(user.getId());
+        assertEquals(password, user.getPassword());
+        assertEquals(email, user.getEmail());
     }
 
     @Test

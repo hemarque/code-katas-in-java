@@ -11,7 +11,7 @@ public class UserRegistrar {
 
     public void register(String email, String password) throws Exception {
         validator.validate(password);
-        repository.save(email);
+        repository.save(email, password);
         sender.sendConfirmation(email);
     }
 }

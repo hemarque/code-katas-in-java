@@ -5,9 +5,9 @@ import java.util.stream.Stream;
 public class UserRepository {
     HashMap<String, User> users = new HashMap<>();
 
-    public String save(String email) throws Exception {
+    public String save(String email, String password) throws Exception {
         String uuid = UUID.randomUUID().toString();
-        User user = new User(email, uuid);
+        User user = new User(email, password, uuid);
         users.put(email, user);
         return uuid;
     }
