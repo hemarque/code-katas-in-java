@@ -15,8 +15,4 @@ public class UserRegistrar {
         this.sender.sendConfirmation(email);
         return userId;
     }
-
-    public long countAllUsersByEmail(String email) {
-        return repository.findAllUsersByEmail(email).count();
-    }
 }

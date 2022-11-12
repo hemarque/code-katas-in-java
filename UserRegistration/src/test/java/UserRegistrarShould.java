@@ -40,12 +40,12 @@ public class UserRegistrarShould {
     }
 
     @Test
-    public void shouldNotExistTwoUsersWithTheSameEmail() throws Exception {
+    public void shouldNotExistTwoUsersinTheRepositoryWithTheSameEmail() throws Exception {
         UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
         registrar.register(email, password);
         registrar.register(email, password);
 
-        long count = registrar.countAllUsersByEmail(email);
+        long count = repository.findAllUsersByEmail(email).count();
 
         assertEquals(1, count);
     }
