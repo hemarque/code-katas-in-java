@@ -9,10 +9,9 @@ public class UserRegistrar {
         this.sender = sender;
     }
 
-    public String register(String email, String password) throws Exception {
-        this.validator.validate(password);
-        String userId = repository.save(email);
-        this.sender.sendConfirmation(email);
-        return userId;
+    public void register(String email, String password) throws Exception {
+        validator.validate(password);
+        repository.save(email);
+        sender.sendConfirmation(email);
     }
 }

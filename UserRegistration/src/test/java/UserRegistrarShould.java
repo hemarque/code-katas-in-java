@@ -25,22 +25,22 @@ public class UserRegistrarShould {
     public void getAnUserIdRandomlyGenerated() throws Exception {
         UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
 
-        String userId = registrar.register(email, password);
+        registrar.register(email, password);
 
-        assertNotNull(userId);
+        assertNotNull(repository.findUserByEmail(email).getUserId());
     }
 
     @Test
     public void couldGetTheUserInTheRepositoryAfterBeingPersisted() throws Exception {
         UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
 
-        String userIdGenerated = registrar.register(email, password);
+        registrar.register(email, password);
 
-        assertEquals(userIdGenerated, repository.findUserByEmail(email).getUserId());
+        assertNotNull(repository.findUserByEmail(email));
     }
 
     @Test
-    public void shouldNotExistTwoUsersinTheRepositoryWithTheSameEmail() throws Exception {
+    public void shouldNotExistTwoUsersInTheRepositoryWithTheSameEmail() throws Exception {
         UserRegistrar registrar = new UserRegistrar(repository, validator, sender);
         registrar.register(email, password);
         registrar.register(email, password);
