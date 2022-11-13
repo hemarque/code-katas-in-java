@@ -19,22 +19,22 @@ public class DrinkMakerShould {
     public void sendTheOrderToMakeATeaWithOneSugar() {
         MachineSender sender = mock(MachineSender.class);
         DrinkMaker maker = new DrinkMaker(sender);
-        Tea tea = new Tea(1, false);
+        Tea tea = new Tea(1, true);
 
         maker.make(tea);
 
-        verify(sender).send("T:1:");
+        verify(sender).send("T:1:0");
     }
 
     @Test
     public void sendTheOrderToMakeATeaWithTwoSugar() {
         MachineSender sender = mock(MachineSender.class);
         DrinkMaker maker = new DrinkMaker(sender);
-        Tea tea = new Tea(2, false);
+        Tea tea = new Tea(2, true);
 
         maker.make(tea);
 
-        verify(sender).send("T:2:");
+        verify(sender).send("T:2:0");
     }
 
     @Test
@@ -46,6 +46,17 @@ public class DrinkMakerShould {
         maker.make(tea);
 
         verify(sender).send("T:2:0");
+    }
+
+    @Test
+    public void includeAStickIfTheOrderIncludesSugar() {
+        MachineSender sender = mock(MachineSender.class);
+        DrinkMaker maker = new DrinkMaker(sender);
+        Tea tea = new Tea(1, false);
+
+        maker.make(tea);
+
+        verify(sender).send("T:1:0");
     }
 
 }

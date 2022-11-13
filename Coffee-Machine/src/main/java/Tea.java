@@ -10,7 +10,7 @@ public class Tea {
     @Override
     public String toString() {
         String sugar = ((this.sugar == 0) ? "" : (this.sugar + ""));
-        String stick = this.withStick ? "0" : "";
+        String stick = (this.withStick || this.sugar>0) ? "0" : "";
         return "T:" + sugar + ":" + stick;
     }
 }
