@@ -5,7 +5,7 @@ public class DrinkMaker {
         this.sender = sender;
     }
 
-    public void make(Tea tea) {
-        sender.send(tea.toString());
+    public void make(Drink drink) {
+        sender.send(drink.toString());
     }
 }
