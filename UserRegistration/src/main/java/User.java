@@ -9,10 +9,6 @@ public class User {
         this.uuid = uuid;
     }
 
-    public String getUserId() {
-        return this.uuid;
-    }
-
     public String getId() {
         return this.uuid;
     }

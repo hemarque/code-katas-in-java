@@ -27,7 +27,7 @@ public class UserRegistrarShould {
 
         registrar.register(email, password);
 
-        assertNotNull(repository.findUserByEmail(email).getUserId());
+        assertNotNull(repository.findUserByEmail(email).getId());
     }
 
     @Test
