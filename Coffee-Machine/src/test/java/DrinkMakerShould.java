@@ -28,5 +28,14 @@ public class DrinkMakerShould {
         assertEquals(1, maker.getCurrentOrder().getSugar());
     }
 
+    @Test
+    public void addTwoSugarIfIOrderIt() {
+        String order = "T:2:";
+        OrderValidator validator = new OrderValidator();
+        DrinkMaker maker = new DrinkMaker(validator);
 
+        maker.make(order);
+
+        assertEquals(2, maker.getCurrentOrder().getSugar());
+    }
 }
