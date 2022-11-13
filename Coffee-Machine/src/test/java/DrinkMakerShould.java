@@ -70,4 +70,15 @@ public class DrinkMakerShould {
         verify(sender).send("C:2:0");
     }
 
+    @Test
+    public void sendTheOrderToMakeAChocolateWithOneSugar() {
+        MachineSender sender = mock(MachineSender.class);
+        DrinkMaker maker = new DrinkMaker(sender);
+        Chocolate chocolate = new Chocolate(1, false);
+
+        maker.make(chocolate);
+
+        verify(sender).send("H:1:0");
+    }
+
 }
