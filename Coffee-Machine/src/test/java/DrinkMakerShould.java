@@ -26,4 +26,15 @@ public class DrinkMakerShould {
         verify(sender).send("T:1:");
     }
 
+    @Test
+    public void sendTheOrderToMakeATeaWithTwotSugar() {
+        MachineSender sender = mock(MachineSender.class);
+        DrinkMaker maker = new DrinkMaker(sender);
+        Tea tea = new Tea(2);
+
+        maker.make(tea);
+
+        verify(sender).send("T:2:");
+    }
+
 }
