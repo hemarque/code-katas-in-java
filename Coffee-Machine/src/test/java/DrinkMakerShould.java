@@ -15,4 +15,15 @@ public class DrinkMakerShould {
 
         verify(sender).send("T::");
     }
+    @Test
+    public void sendTheOrderToMakeATeaWithOneSugar() {
+        MachineSender sender = mock(MachineSender.class);
+        DrinkMaker maker = new DrinkMaker(sender);
+        Tea tea = new Tea(1);
+
+        maker.make(tea);
+
+        verify(sender).send("T:1:");
+    }
+
 }
