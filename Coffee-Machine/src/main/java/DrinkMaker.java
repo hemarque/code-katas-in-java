@@ -1,18 +1,11 @@
 public class DrinkMaker {
-    private OrderValidator validator;
-    private Order currentOrder;
+    private final MachineSender sender;
 
-    public DrinkMaker(OrderValidator validator) {
-        this.validator = validator;
+    public DrinkMaker(MachineSender sender) {
+        this.sender = sender;
     }
 
-    public void make(String order) {
-        validator.validate(order);
-        String[] details = order.split(":");
-        this.currentOrder = new Order(details[0], Integer.parseInt(details[1]));
-    }
-
-    public Order getCurrentOrder() {
-        return this.currentOrder;
+    public void make(Tea tea) {
+        sender.send(tea.toString());
     }
 }
