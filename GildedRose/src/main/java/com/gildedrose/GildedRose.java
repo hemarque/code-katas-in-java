@@ -23,7 +23,7 @@ class GildedRose {
         } else if (isSulfuras(item)) {
             updateSulfuras(item);
         } else {
-            updateDefaultItem(item);
+            item.update();
         }
     }
 
@@ -63,11 +63,7 @@ class GildedRose {
     }
 
     private void updateDefaultItem(Item item) {
-        decreaseQuality(item);
-        decreaseSellIn(item);
-        if (item.sellIn < 0) {
-            decreaseQuality(item);
-        }
+
     }
 
 
