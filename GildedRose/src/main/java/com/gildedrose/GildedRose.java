@@ -31,9 +31,7 @@ class GildedRose {
                     }
 
                     if (isQualityLessThan6(item)) {
-                        if (isQualityLessThan50(item)) {
-                            increaseQuality(item);
-                        }
+                        increaseQuality(item);
                     }
                 }
             }
