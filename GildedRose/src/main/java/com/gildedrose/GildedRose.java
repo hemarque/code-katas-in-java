@@ -16,27 +16,26 @@ class GildedRose {
     private void update(Item item) {
         if (isAgedBrie(item)) {
             if (item.quality < 50) {
-                item.quality = item.quality + 1;
+                increaseQuality(item);
             }
         } else if (isBackstagePasses(item)) {
             if (item.quality < 50) {
-                item.quality = item.quality + 1;
+                increaseQuality(item);
                 if (item.sellIn < 11) {
                     if (item.quality < 50) {
-                        item.quality = item.quality + 1;
+                        increaseQuality(item);
                     }
                 }
                 if (item.sellIn < 6) {
                     if (item.quality < 50) {
-                        item.quality = item.quality + 1;
+                        increaseQuality(item);
                     }
                 }
             }
+        } else if (isSulfuras(item)) {
         } else {
             if (item.quality > 0) {
-                if (!isSulfuras(item)) {
-                    item.quality = item.quality - 1;
-                }
+                decreaseQuality(item);
             }
         }
 
@@ -48,7 +47,7 @@ class GildedRose {
         if (item.sellIn < 0) {
             if (isAgedBrie(item)) {
                 if (item.quality < 50) {
-                    item.quality = item.quality + 1;
+                    increaseQuality(item);
                 }
             } else {
                 if (isBackstagePasses(item)) {
@@ -58,11 +57,19 @@ class GildedRose {
                         if (isSulfuras(item)) {
                             return;
                         }
-                        item.quality = item.quality - 1;
+                        decreaseQuality(item);
                     }
                 }
             }
         }
+    }
+
+    private void decreaseQuality(Item item) {
+        item.quality = item.quality - 1;
+    }
+
+    private void increaseQuality(Item item) {
+        item.quality = item.quality + 1;
     }
 
     private boolean isAgedBrie(Item item) {
