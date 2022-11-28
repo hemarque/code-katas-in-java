@@ -14,18 +14,18 @@ class GildedRose {
     }
 
     private void update(Item item) {
-        if (!isAgedBrie(item)
-                && !isBackstagePasses(item)) {
+        if (isAgedBrie(item)
+                || isBackstagePasses(item)) {
+                    if (isQualityLessThan50(item)) {
+                        increaseQuality(item);
+                        if (isBackstagePasses(item)) {
+                            increaseQualityWhenIsLessThan11(item);
+                            increaseQualityWhenIsLessThan6(item);
+                        }
+                    }
+                } else {
             if (isQualityGreaterThanZero(item)) {
                 decreaseQualityWhenIsNotSulfuras(item);
-            }
-        } else {
-            if (isQualityLessThan50(item)) {
-                increaseQuality(item);
-                if (isBackstagePasses(item)) {
-                    increaseQualityWhenIsLessThan11(item);
-                    increaseQualityWhenIsLessThan6(item);
-                }
             }
         }
         if (!isSulfuras(item)) {
