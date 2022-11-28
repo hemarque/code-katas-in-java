@@ -21,7 +21,7 @@ class GildedRose {
         } else if (isBackstagePasses(item)) {
             updateBackstagePasses(item);
         } else if (isSulfuras(item)) {
-            updateSulfuras(item);
+            item.update();
         } else {
             item.update();
         }
