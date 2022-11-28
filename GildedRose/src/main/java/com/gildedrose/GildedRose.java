@@ -15,53 +15,68 @@ class GildedRose {
 
     private void update(Item item) {
         if (isAgedBrie(item)) {
+            updateAgedBrie(item);
+        } else if (isBackstagePasses(item)) {
+            updateBackstagePasses(item);
+        } else if (isSulfuras(item)) {
+            updateSulfuras(item);
+        } else {
+            updateDefaultItem(item);
+        }
+    }
+
+    private void updateAgedBrie(Item item) {
+        if (item.quality < 50) {
+            increaseQuality(item);
+        }
+        decreaseSellIn(item);
+        if (item.sellIn < 0) {
             if (item.quality < 50) {
                 increaseQuality(item);
             }
-            decreaseSellIn(item);
-            if (item.sellIn < 0) {
+        }
+    }
+
+    private void updateBackstagePasses(Item item) {
+        if (item.quality < 50) {
+            increaseQuality(item);
+            if (item.sellIn < 11) {
                 if (item.quality < 50) {
                     increaseQuality(item);
                 }
             }
-        } else if (isBackstagePasses(item)) {
-            if (item.quality < 50) {
-                increaseQuality(item);
-                if (item.sellIn < 11) {
-                    if (item.quality < 50) {
-                        increaseQuality(item);
-                    }
-                }
-                if (item.sellIn < 6) {
-                    if (item.quality < 50) {
-                        increaseQuality(item);
-                    }
-                }
-            }
-            decreaseSellIn(item);
-            if (item.sellIn < 0) {
-                item.quality = 0;
-            }
-        } else if (isSulfuras(item)) {
-        } else {
-            if (item.quality > 0) {
-                decreaseQuality(item);
-            }
-            decreaseSellIn(item);
-            if (item.sellIn < 0) {
-                if (item.quality > 0) {
-                    decreaseQuality(item);
+            if (item.sellIn < 6) {
+                if (item.quality < 50) {
+                    increaseQuality(item);
                 }
             }
         }
+        decreaseSellIn(item);
+        if (item.sellIn < 0) {
+            item.quality = 0;
+        }
     }
+
+    private void updateSulfuras(Item item) {
+    }
+
+    private void updateDefaultItem(Item item) {
+        decreaseQuality(item);
+        decreaseSellIn(item);
+        if (item.sellIn < 0) {
+            decreaseQuality(item);
+        }
+    }
+
 
     private void decreaseSellIn(Item item) {
         item.sellIn = item.sellIn - 1;
     }
 
     private void decreaseQuality(Item item) {
-        item.quality = item.quality - 1;
+        if (item.quality > 0) {
+            item.quality = item.quality - 1;
+        }
     }
 
     private void increaseQuality(Item item) {
