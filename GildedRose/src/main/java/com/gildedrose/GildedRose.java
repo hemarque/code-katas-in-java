@@ -18,7 +18,7 @@ class GildedRose {
             if (item.quality < 50) {
                 increaseQuality(item);
             }
-            item.sellIn = item.sellIn - 1;
+            decreaseSellIn(item);
             if (item.sellIn < 0) {
                 if (item.quality < 50) {
                     increaseQuality(item);
@@ -38,7 +38,7 @@ class GildedRose {
                     }
                 }
             }
-            item.sellIn = item.sellIn - 1;
+            decreaseSellIn(item);
             if (item.sellIn < 0) {
                 item.quality = 0;
             }
@@ -47,13 +47,17 @@ class GildedRose {
             if (item.quality > 0) {
                 decreaseQuality(item);
             }
-            item.sellIn = item.sellIn - 1;
+            decreaseSellIn(item);
             if (item.sellIn < 0) {
                 if (item.quality > 0) {
                     decreaseQuality(item);
                 }
             }
         }
+    }
+
+    private void decreaseSellIn(Item item) {
+        item.sellIn = item.sellIn - 1;
     }
 
     private void decreaseQuality(Item item) {
