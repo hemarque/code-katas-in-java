@@ -17,7 +17,7 @@ class GildedRose {
 
     private void update(Item item) {
         if (isAgedBrie(item)) {
-            updateAgedBrie(item);
+            item.update();
         } else if (isBackstagePasses(item)) {
             updateBackstagePasses(item);
         } else if (isSulfuras(item)) {

@@ -27,7 +27,7 @@ public class Item {
         }
     }
 
-    private void decreaseSellIn() {
+    void decreaseSellIn() {
         sellIn = sellIn - 1;
     }
 
@@ -35,5 +35,9 @@ public class Item {
         if (quality > 0) {
             quality = quality - 1;
         }
+    }
+
+    void increaseQuality() {
+        quality = quality + 1;
     }
 }
