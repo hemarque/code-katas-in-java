@@ -18,23 +18,21 @@ class GildedRose {
                 && !isBackstagePasses(item)) {
             if (isQualityGreaterThanZero(item)) {
                 if (!isSulfuras(item)) {
-                    item.quality = item.quality - 1;
+                    decreaseQuality(item);
                 }
             }
         } else {
             if (isQualityLessThan50(item)) {
-                item.quality = item.quality + 1;
+                increaseQuality(item);
 
                 if (isBackstagePasses(item)) {
                     if (item.sellIn < 11) {
-                        if (isQualityLessThan50(item)) {
-                            item.quality = item.quality + 1;
-                        }
+                        increaseQuality(item);
                     }
 
                     if (isQualityLessThan6(item)) {
                         if (isQualityLessThan50(item)) {
-                            item.quality = item.quality + 1;
+                            increaseQuality(item);
                         }
                     }
                 }
@@ -48,20 +46,32 @@ class GildedRose {
         if (item.sellIn < 0) {
             if (isAgedBrie(item)) {
                 if (isQualityLessThan50(item)) {
-                    item.quality = item.quality + 1;
+                    increaseQuality(item);
                 }
             } else {
                 if (isBackstagePasses(item)) {
-                    item.quality = 0;
+                    makeQualityZero(item);
                 } else {
                     if (isQualityGreaterThanZero(item)) {
                         if (!isSulfuras(item)) {
-                            item.quality = item.quality - 1;
+                            decreaseQuality(item);
                         }
                     }
                 }
             }
         }
+    }
+
+    private void makeQualityZero(Item item) {
+        item.quality = 0;
+    }
+
+    private void decreaseQuality(Item item) {
+        item.quality = item.quality - 1;
+    }
+
+    private void increaseQuality(Item item) {
+        item.quality = item.quality + 1;
     }
 
     private boolean isQualityLessThan6(Item item) {
