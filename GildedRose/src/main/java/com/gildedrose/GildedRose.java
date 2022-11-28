@@ -18,6 +18,7 @@ class GildedRose {
             if (item.quality < 50) {
                 increaseQuality(item);
             }
+            item.sellIn = item.sellIn - 1;
         } else if (isBackstagePasses(item)) {
             if (item.quality < 50) {
                 increaseQuality(item);
@@ -32,15 +33,12 @@ class GildedRose {
                     }
                 }
             }
+            item.sellIn = item.sellIn - 1;
         } else if (isSulfuras(item)) {
         } else {
             if (item.quality > 0) {
                 decreaseQuality(item);
             }
-        }
-
-        if (isSulfuras(item)) {
-        } else {
             item.sellIn = item.sellIn - 1;
         }
 
