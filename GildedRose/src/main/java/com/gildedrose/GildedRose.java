@@ -10,7 +10,9 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        Arrays.stream(items).forEach(this::update);
+        for (Item item : items) {
+            update(item);
+        }
     }
 
     private void update(Item item) {
