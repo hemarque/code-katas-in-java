@@ -19,7 +19,8 @@ class GildedRose {
         if (isAgedBrie(item)) {
             item.update();
         } else if (isBackstagePasses(item)) {
-            updateBackstagePasses(item);
+            item.update();
+            //updateBackstagePasses(item);
         } else if (isSulfuras(item)) {
             item.update();
         } else {

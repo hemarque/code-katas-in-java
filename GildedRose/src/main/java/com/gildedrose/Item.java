@@ -2,11 +2,11 @@ package com.gildedrose;
 
 public class Item {
 
-    public String name;
+     String name;
 
-    public int sellIn;
+     int sellIn;
 
-    public int quality;
+     int quality;
 
     public Item(String name, int sellIn, int quality) {
         this.name = name;
@@ -28,7 +28,7 @@ public class Item {
     }
 
     void decreaseSellIn() {
-        sellIn = sellIn - 1;
+        this.sellIn--;
     }
 
     private void decreaseQuality() {
@@ -38,6 +38,6 @@ public class Item {
     }
 
     void increaseQuality() {
-        quality = quality + 1;
+        this.quality++;
     }
 }
