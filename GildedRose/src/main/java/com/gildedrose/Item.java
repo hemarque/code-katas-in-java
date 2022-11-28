@@ -16,7 +16,7 @@ public class Item {
 
    @Override
    public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality;
+        return name + ", " + sellIn + ", " + quality;
     }
 
     public void update() {
@@ -28,12 +28,12 @@ public class Item {
     }
 
     void decreaseSellIn() {
-        this.sellIn--;
+        sellIn--;
     }
 
     private void decreaseQuality() {
         if (quality > 0) {
-            quality = quality - 1;
+            quality--;
         }
     }
 
