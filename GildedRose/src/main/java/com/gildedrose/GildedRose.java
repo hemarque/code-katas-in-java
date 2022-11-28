@@ -14,51 +14,53 @@ class GildedRose {
     }
 
     private void update(Item item) {
-        if (!isAgedBrie(item)
-                && !isBackstagePasses(item)) {
+        if (isAgedBrie(item)
+                || isBackstagePasses(item)) {
+                    if (item.quality < 50) {
+                        item.quality = item.quality + 1;
+
+                        if (isBackstagePasses(item)) {
+                            if (item.sellIn < 11) {
+                                if (item.quality < 50) {
+                                    item.quality = item.quality + 1;
+                                }
+                            }
+
+                            if (item.sellIn < 6) {
+                                if (item.quality < 50) {
+                                    item.quality = item.quality + 1;
+                                }
+                            }
+                        }
+                    }
+                } else {
             if (item.quality > 0) {
                 if (!isSulfuras(item)) {
                     item.quality = item.quality - 1;
                 }
             }
-        } else {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-
-                if (isBackstagePasses(item)) {
-                    if (item.sellIn < 11) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
-
-                    if (item.sellIn < 6) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
-                }
-            }
         }
 
-        if (!isSulfuras(item)) {
+        if (isSulfuras(item)) {
+        } else {
             item.sellIn = item.sellIn - 1;
         }
 
         if (item.sellIn < 0) {
-            if (!isAgedBrie(item)) {
-                if (!isBackstagePasses(item)) {
-                    if (item.quality > 0) {
-                        if (!isSulfuras(item)) {
-                            item.quality = item.quality - 1;
-                        }
-                    }
-                } else {
-                    item.quality = 0;
-                }
-            } else {
+            if (isAgedBrie(item)) {
                 if (item.quality < 50) {
                     item.quality = item.quality + 1;
+                }
+            } else {
+                if (isBackstagePasses(item)) {
+                    item.quality = 0;
+                } else {
+                    if (item.quality > 0) {
+                        if (isSulfuras(item)) {
+                            return;
+                        }
+                        item.quality = item.quality - 1;
+                    }
                 }
             }
         }
