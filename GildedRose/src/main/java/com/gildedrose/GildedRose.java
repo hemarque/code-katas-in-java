@@ -16,24 +16,24 @@ class GildedRose {
     private void update(Item item) {
         if (!isAgedBrie(item)
                 && !isBackstagePasses(item)) {
-            if (item.quality > 0) {
+            if (isQualityGreaterThanZero(item)) {
                 if (!isSulfuras(item)) {
                     item.quality = item.quality - 1;
                 }
             }
         } else {
-            if (item.quality < 50) {
+            if (isQualityLessThan50(item)) {
                 item.quality = item.quality + 1;
 
                 if (isBackstagePasses(item)) {
                     if (item.sellIn < 11) {
-                        if (item.quality < 50) {
+                        if (isQualityLessThan50(item)) {
                             item.quality = item.quality + 1;
                         }
                     }
 
-                    if (item.sellIn < 6) {
-                        if (item.quality < 50) {
+                    if (isQualityLessThan6(item)) {
+                        if (isQualityLessThan50(item)) {
                             item.quality = item.quality + 1;
                         }
                     }
@@ -47,14 +47,14 @@ class GildedRose {
 
         if (item.sellIn < 0) {
             if (isAgedBrie(item)) {
-                if (item.quality < 50) {
+                if (isQualityLessThan50(item)) {
                     item.quality = item.quality + 1;
                 }
             } else {
                 if (isBackstagePasses(item)) {
                     item.quality = 0;
                 } else {
-                    if (item.quality > 0) {
+                    if (isQualityGreaterThanZero(item)) {
                         if (!isSulfuras(item)) {
                             item.quality = item.quality - 1;
                         }
@@ -62,6 +62,18 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private boolean isQualityLessThan6(Item item) {
+        return item.sellIn < 6;
+    }
+
+    private boolean isQualityLessThan50(Item item) {
+        return item.quality < 50;
+    }
+
+    private boolean isQualityGreaterThanZero(Item item) {
+        return item.quality > 0;
     }
 
     private boolean isBackstagePasses(Item item) {
