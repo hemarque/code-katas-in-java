@@ -14,26 +14,25 @@ class GildedRose {
     }
 
     private void update(Item item) {
-        if (isAgedBrie(item)
-                || isBackstagePasses(item)) {
+        if (isAgedBrie(item)) {
+            if (item.quality < 50) {
+                item.quality = item.quality + 1;
+            }
+        } else if (isBackstagePasses(item)) {
+            if (item.quality < 50) {
+                item.quality = item.quality + 1;
+                if (item.sellIn < 11) {
                     if (item.quality < 50) {
                         item.quality = item.quality + 1;
-
-                        if (isBackstagePasses(item)) {
-                            if (item.sellIn < 11) {
-                                if (item.quality < 50) {
-                                    item.quality = item.quality + 1;
-                                }
-                            }
-
-                            if (item.sellIn < 6) {
-                                if (item.quality < 50) {
-                                    item.quality = item.quality + 1;
-                                }
-                            }
-                        }
                     }
-                } else {
+                }
+                if (item.sellIn < 6) {
+                    if (item.quality < 50) {
+                        item.quality = item.quality + 1;
+                    }
+                }
+            }
+        } else {
             if (item.quality > 0) {
                 if (!isSulfuras(item)) {
                     item.quality = item.quality - 1;
