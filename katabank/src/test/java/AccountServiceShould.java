@@ -7,7 +7,7 @@ public class AccountServiceShould {
     @Test
     public void printStatementContainingAllTransactions() {
         Console console = mock(Console.class);
-        AccountService account = new Account();
+        AccountService account = new Account(null);
 
         account.deposit(1000);
         account.deposit(2000);
