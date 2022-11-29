@@ -8,6 +8,6 @@ public class RepositoryShould {
         Repository repository = new Repository();
         Transaction transaction = new Transaction(100, 0);
         repository.addTransaction(transaction);
-        assertTrue(repository.getAllTransactions().indexOf(transaction) >= 0);
+        assertTrue(repository.getAllTransactions().contains(transaction));
     }
 }

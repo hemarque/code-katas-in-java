@@ -1,4 +1,5 @@
 public class Account implements AccountService {
+    public static final String HEADER = "Date       || Amount || Balance";
     private final Repository repository;
     private final Console console;
 
@@ -24,8 +25,10 @@ public class Account implements AccountService {
 
     @Override
     public void printStatement() {
-        console.printLine("Date       || Amount || Balance");
-        
+        console.printLine(HEADER);
+        for(Transaction t : repository.getAllTransactions()){
+            console.printLine("date" + " || " + t.getAmount() + "   || " + t.getBalance());
+        }
     }
 
     public int getBalance() {

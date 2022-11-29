@@ -6,4 +6,12 @@ public class Transaction {
         this.amount = amount;
         this.balance = balance;
     }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
 }

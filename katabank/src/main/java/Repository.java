@@ -1,13 +1,15 @@
-import java.util.ArrayList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.List;
 
 public class Repository {
-    List<Transaction> transactions = new ArrayList<>();
+    private Deque<Transaction> transactions = new ArrayDeque<>();
+
     public void addTransaction(Transaction transaction) {
-        transactions.add(transaction);
+        transactions.addFirst(transaction);
     }
 
-    public List<Transaction> getAllTransactions() {
+    public Deque<Transaction> getAllTransactions() {
         return transactions;
     }
 }
