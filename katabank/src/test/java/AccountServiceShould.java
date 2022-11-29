@@ -8,7 +8,7 @@ public class AccountServiceShould {
     public void printStatementContainingAllTransactions() {
         Console console = mock(Console.class);
         Repository repository = new Repository();
-        AccountService account = new Account(repository);
+        AccountService account = new Account(repository, console);
 
         account.deposit(1000);
         account.deposit(2000);
