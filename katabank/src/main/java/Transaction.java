@@ -7,11 +7,7 @@ public class Transaction {
         this.balance = balance;
     }
 
-    public int getAmount() {
-        return amount;
-    }
-
-    public int getBalance() {
-        return balance;
+    public String toString(){
+        return "date" + " || " + amount + "   || " + balance;
     }
 }

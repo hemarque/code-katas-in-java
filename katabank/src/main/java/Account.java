@@ -25,10 +25,22 @@ public class Account implements AccountService {
 
     @Override
     public void printStatement() {
-        console.printLine(HEADER);
-        for(Transaction t : repository.getAllTransactions()){
-            console.printLine("date" + " || " + t.getAmount() + "   || " + t.getBalance());
+        printHeader();
+        printTransactions();
+    }
+
+    private void printTransactions() {
+        for(Transaction transaction : repository.getAllTransactions()){
+            printTransaction(transaction);
         }
+    }
+
+    private void printTransaction(Transaction transaction) {
+        console.printLine(transaction.toString());
+    }
+
+    private void printHeader() {
+        console.printLine(HEADER);
     }
 
     public int getBalance() {
