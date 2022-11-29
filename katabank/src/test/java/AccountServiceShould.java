@@ -25,4 +25,15 @@ public class AccountServiceShould {
         verify(console).printLine("13/01/2012 || 2000   || 3000");
         verify(console).printLine("10/01/2012 || 1000   || 1000");
     }
+
+    @Test
+    public void printStatementContainingAllTransactionsForReal() {
+        AccountService account = new Account(new Repository(), new Console(), new Calendar());
+
+        account.deposit(1000);
+        account.deposit(2000);
+        account.withdraw(500);
+
+        account.printStatement();
+    }
 }
