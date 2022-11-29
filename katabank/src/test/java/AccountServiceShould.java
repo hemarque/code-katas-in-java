@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -7,8 +9,10 @@ public class AccountServiceShould {
     @Test
     public void printStatementContainingAllTransactions() {
         Console console = mock(Console.class);
+        Calendar calendar = mock(Calendar.class);
+        given(calendar.today()).willReturn("10/01/2012", "13/01/2012", "14/01/2012");
         Repository repository = new Repository();
-        AccountService account = new Account(repository, console);
+        AccountService account = new Account(repository, console, calendar);
 
         account.deposit(1000);
         account.deposit(2000);

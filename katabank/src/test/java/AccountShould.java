@@ -9,7 +9,8 @@ public class AccountShould {
     @Test
     public void storeDeposit(){
         Repository repository = mock(Repository.class);
-        Account account = new Account(repository, null);
+        Calendar calendar = mock(Calendar.class);
+        Account account = new Account(repository, null, calendar);
         account.deposit(100);
         verify(repository).addTransaction(any());
     }
@@ -17,7 +18,8 @@ public class AccountShould {
     @Test
     public void storeWithdraw(){
         Repository repository = mock(Repository.class);
-        Account account = new Account(repository, null);
+        Calendar calendar = mock(Calendar.class);
+        Account account = new Account(repository, null, calendar);
         account.withdraw(100);
         verify(repository).addTransaction(any());
     }
@@ -25,7 +27,8 @@ public class AccountShould {
     @Test
     public void storeBalance(){
         Repository repository = new Repository();
-        Account account = new Account(repository, null);
+        Calendar calendar = mock(Calendar.class);
+        Account account = new Account(repository, null, calendar);
 
         account.deposit(100);
         account.deposit(300);
