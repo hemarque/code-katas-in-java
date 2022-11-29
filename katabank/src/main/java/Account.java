@@ -13,7 +13,7 @@ public class Account implements AccountService {
 
     @Override
     public void withdraw(int amount) {
-
+        repository.addTransaction(amount*-1);
     }
 
     @Override
