@@ -8,12 +8,12 @@ public class Account implements AccountService {
 
     @Override
     public void deposit(int amount) {
-        repository.addTransaction(amount);
+        repository.addTransaction(new Transaction(amount));
     }
 
     @Override
     public void withdraw(int amount) {
-        repository.addTransaction(amount*-1);
+        repository.addTransaction(new Transaction(amount*-1));
     }
 
     @Override

@@ -1,5 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Repository {
-    public void addTransaction(int i) {
-        throw new RuntimeException("Not implemented yet");
+    List<Transaction> transactions = new ArrayList<>();
+    public void addTransaction(Transaction transaction) {
+        transactions.add(transaction);
+    }
+
+    public List<Transaction> getAllTransactions() {
+        return transactions;
     }
 }
