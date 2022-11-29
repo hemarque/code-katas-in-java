@@ -13,13 +13,13 @@ public class Account implements AccountService {
     @Override
     public void deposit(int amount) {
         balance += amount;
-        repository.addTransaction(new Transaction(amount));
+        repository.addTransaction(new Transaction(amount, balance));
     }
 
     @Override
     public void withdraw(int amount) {
         balance -= amount;
-        repository.addTransaction(new Transaction(amount*-1));
+        repository.addTransaction(new Transaction(amount*-1, balance));
     }
 
     @Override

@@ -6,7 +6,7 @@ public class RepositoryShould {
     @Test
     public void storeTransaction() {
         Repository repository = new Repository();
-        Transaction transaction = new Transaction(100);
+        Transaction transaction = new Transaction(100, 0);
         repository.addTransaction(transaction);
         assertTrue(repository.getAllTransactions().indexOf(transaction) >= 0);
     }
