@@ -2,6 +2,7 @@ package com.helder.controller;
 
 import com.helder.domain.User;
 import com.helder.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SampleController {
 
-    private UserService userService = new UserService();
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/")
     public String hello() {
@@ -24,8 +26,9 @@ public class SampleController {
 
     @GetMapping(value = "/addUser")
     public String addUser(@RequestParam(value = "name", required = false) String name) {
-        User user = new User(name);
-        userService.addUser(user);
+        User user = new User();
+        user.setName(name);
+        userService.add(user);
         return name + " added";
     }
 

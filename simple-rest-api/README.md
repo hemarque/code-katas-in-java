@@ -13,5 +13,6 @@ mvn spring-boot:run
 - Call http://localhost:8080/getUsers
 
 we can check the database here http://localhost:8080/h2
+- url: jdbc:h2:mem:userdb
 - user: sa
 - password: password

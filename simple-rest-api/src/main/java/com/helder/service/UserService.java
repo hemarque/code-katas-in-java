@@ -2,16 +2,18 @@ package com.helder.service;
 
 import com.helder.domain.User;
 import com.helder.domain.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+@Service
 public class UserService {
-    UserRepository repository = new UserRepository();
-    public void addUser(User user) {
-        repository.add(user);
+    @Autowired
+    UserRepository repository;
+    public void add(User user) {
+        repository.save(user);
     }
 
-    public List<User> getUsers() {
-        return repository.getAll();
+    public Iterable<User> getUsers() {
+        return repository.findAll();
     }
 }
