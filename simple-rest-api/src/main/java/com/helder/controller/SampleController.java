@@ -1,5 +1,6 @@
 package com.helder.controller;
 
+import com.helder.domain.User;
 import com.helder.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,15 +24,16 @@ public class SampleController {
 
     @GetMapping(value = "/addUser")
     public String addUser(@RequestParam(value = "name", required = false) String name) {
-        userService.addUser(name);
+        User user = new User(name);
+        userService.addUser(user);
         return name + " added";
     }
 
     @RequestMapping("/getUsers")
     public String getUsers() {
         String response = "";
-        for(String name : userService.getUsers()){
-            response += name+"<br>";
+        for (User user : userService.getUsers()) {
+            response += user.getName() + "<br>";
         }
         return response;
     }

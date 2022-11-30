@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository {
-    List<String> users = new ArrayList<String>();
-    public void add(String name) {
-        users.add(name);
+    List<User> users = new ArrayList<User>();
+    public void add(User user) {
+        users.add(user);
     }
 
-    public List getAll() {
+    public List<User> getAll() {
         return users;
     }
 }
