@@ -13,5 +13,7 @@ public class SampleController {
     public String sayHiTo(@RequestParam(value = "name", required = false) String name) {
         return "Hi " + name;
     }
+
+
 }
 
