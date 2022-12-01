@@ -1,14 +1,12 @@
 public class MarsRover {
-    private static final String STARTING_POSITION = "0:0:N";
-
+    private int x = 0;
+    private int y = 0;
+    private char direction = 'N';
 
     public String execute(String command) {
-        String response;
-        if(command.equals("M")){
-            response = "0:1:N";
-        }else{
-            response = STARTING_POSITION;
+        if (command.equals("M")) {
+            y++;
         }
-        return response;
+        return x + ":" + y + ":" + direction;
     }
 }
