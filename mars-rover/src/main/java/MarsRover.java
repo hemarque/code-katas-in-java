@@ -4,8 +4,10 @@ public class MarsRover {
     private char direction = 'N';
 
     public String execute(String command) {
-        if (command.equals("M")) {
-            y++;
+        for (String c : command.split("")) {
+            if (c.equals("M")) {
+                y++;
+            }
         }
         return x + ":" + y + ":" + direction;
     }

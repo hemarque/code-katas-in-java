@@ -16,4 +16,11 @@ public class RoverShould {
         String command = "M";
         assertEquals("0:1:N", rover.execute(command));
     }
+
+    @Test
+    public void moveNorth2Steps(){
+        MarsRover rover = new MarsRover();
+        String position = rover.execute("MM");
+        assertEquals("0:2:N", position);
+    }
 }
