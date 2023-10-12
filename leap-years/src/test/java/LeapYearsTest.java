@@ -18,9 +18,20 @@ public class LeapYearsTest {
         assertFalse(isLeap(year));
     }
 
+    @Test
+    public void yearIsLeapIfDivisibleBy4ButNotBy100(){
+        int year = 2008;
+        assertTrue(isLeap(year));
+    }
+
     private boolean isLeap(int year) {
-        return isDivisibleBy400(year) &&
-                !(isDivisibleBy100(year) && !isDivisibleBy400(year));
+        return isDivisibleBy400(year) ||
+                !(isDivisibleBy100(year) && !isDivisibleBy400(year)) ||
+                (isDivisibleBy4(year) &&(!isDivisibleBy100(year)));
+    }
+
+    private boolean isDivisibleBy4(int year) {
+        return year % 4 == 0;
     }
 
     private boolean isDivisibleBy100(int year) {
