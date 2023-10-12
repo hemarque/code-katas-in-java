@@ -7,9 +7,11 @@ public class LeapYearsTest {
     @ParameterizedTest
     @ValueSource(ints = {400, 800, 1200, 1600, 2000})
     public void yearIsLeapIfIsDivisibleBy400(int year) {
+        assertTrue(isLeap(year));
+    }
 
+    private boolean isLeap(int year) {
         boolean isLeap = year % 400 == 0;
-
-        assertTrue(isLeap);
+        return isLeap;
     }
 }
