@@ -12,9 +12,9 @@ public class LeapYearsTest {
         assertTrue(isLeap(year));
     }
 
-    @Test
-    public void yearIsNotLeapIfDivisibleBy100AndNotBy400() {
-        int year = 1700;
+    @ParameterizedTest
+    @ValueSource(ints = {1700, 1800, 1900})
+    public void yearIsNotLeapIfDivisibleBy100AndNotBy400(int year) {
         assertFalse(isLeap(year));
     }
 
