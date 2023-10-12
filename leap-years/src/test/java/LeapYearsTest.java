@@ -1,4 +1,3 @@
-import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -31,15 +30,8 @@ public class LeapYearsTest {
     }
 
     private boolean isLeap(int year) {
-        if (isDivisibleBy400(year))
-            return true;
-        if (isDivisibleBy100(year) && !isDivisibleBy400(year))
-            return false;
-        if (isDivisibleBy4(year) && !isDivisibleBy100(year))
-            return true;
-        if (isDivisibleBy4(year))
-            return true;
-        return false;
+        return isDivisibleBy400(year) ||
+                (isDivisibleBy4(year) && !isDivisibleBy100(year));
     }
 
     private boolean isDivisibleBy4(int year) {
