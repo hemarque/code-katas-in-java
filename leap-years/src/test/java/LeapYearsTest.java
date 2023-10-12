@@ -24,9 +24,9 @@ public class LeapYearsTest {
         assertTrue(isLeap(year));
     }
 
-    @Test
-    public void yearNotDivisibleBy4AreNotLeap() {
-        int year = 2017;
+    @ParameterizedTest
+    @ValueSource(ints = {2017, 2018, 2019})
+    public void yearNotDivisibleBy4AreNotLeap(int year) {
         assertFalse(isLeap(year));
     }
 
