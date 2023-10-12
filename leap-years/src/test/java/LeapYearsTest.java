@@ -20,14 +20,26 @@ public class LeapYearsTest {
 
     @ParameterizedTest
     @ValueSource(ints = {2008, 2012, 2016})
-    public void yearIsLeapIfDivisibleBy4ButNotBy100(int year){
+    public void yearIsLeapIfDivisibleBy4ButNotBy100(int year) {
         assertTrue(isLeap(year));
     }
 
+    @Test
+    public void yearNotDivisibleBy4AreNotLeap() {
+        int year = 2017;
+        assertFalse(isLeap(year));
+    }
+
     private boolean isLeap(int year) {
-        return isDivisibleBy400(year) ||
-                !(isDivisibleBy100(year) && !isDivisibleBy400(year)) ||
-                (isDivisibleBy4(year) &&(!isDivisibleBy100(year)));
+        if (isDivisibleBy400(year))
+            return true;
+        if (isDivisibleBy100(year) && !isDivisibleBy400(year))
+            return false;
+        if (isDivisibleBy4(year) && !isDivisibleBy100(year))
+            return true;
+        if (isDivisibleBy4(year))
+            return true;
+        return false;
     }
 
     private boolean isDivisibleBy4(int year) {
